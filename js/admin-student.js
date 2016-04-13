@@ -1,7 +1,7 @@
 $(document).ready(function() {
     loadStudents();
 });
-	
+
 loadStudents = function() {
     $("#tableData").html('<img src="/images/icons/loading.gif" />');
 
@@ -32,6 +32,8 @@ bindActions = function() {
             } else {
                 $("p.overlay").html("Please enter a valid birth date and admission year...");
             }
+        } else {
+            $("input[name='student_id']").val('');
         }
     });
 
@@ -54,13 +56,46 @@ bindActions = function() {
             major: $("select[name='major']").val()
         }
 
-        $.post('/ajax/add-student/', data, function(response) {
-            if (response.success) {
-                window.location.href = '/admin/student';
+        if (validateData(data)) {
+            $.post('/ajax/add-student/', data, function (response) {
+                if (response.success) {
+                    window.location.href = '/admin/student';
+                } else {
+                    $("p.overlay").html(response.errorMessage);
+                }
+            }, "json");
+        } else {
+            $("p.overlay").html("Please verify all required fields and try again...");
+        }
+
+        function validateData(data) {
+            if (data.last_name.length > 0 &&
+                data.first_name.length > 0 &&
+                isEmailValid(data.email) &&
+                isPhoneValid(data.phone) &&
+                data.street.length > 0 &&
+                data.city.length > 0 &&
+                data.state.length > 0 &&
+                data.zip.length == 5 &&
+                data.student_id.length == 8
+            ) {
+                return true;
             } else {
-                $("p.overlay").html(response.errorMessage);
+                return false;
             }
-        }, "json");
+
+        }
+
+        function isEmailValid(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+
+        function isPhoneValid(phone) {
+            var number = phone.replace(/\D/g, '');
+            var regex = /^1?\d{10}$/;
+            return regex.test(phone);
+        }
     });
 
     $("#student-update").click(function() {
@@ -106,4 +141,3 @@ bindActions = function() {
         }
     });
 }
-
