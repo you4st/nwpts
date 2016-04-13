@@ -177,7 +177,10 @@ class Disciples_Model_User extends Zend_Db_Table_Abstract
             }
         }
 
-        if (empty(trim($data['first_name'])) || empty(trim($data['last_name']))) {
+        $data['first_name'] = trim($data['first_name']);
+        $data['last_name'] = trim($data['last_name']);
+
+        if (empty($data['first_name']) || empty($data['last_name'])) {
             $errorMessage .= 'You must provide valid first and last name<br />';
         }
 
@@ -205,7 +208,10 @@ class Disciples_Model_User extends Zend_Db_Table_Abstract
             }
         }
 
-        if (empty(trim($data['first_name'])) || empty(trim($data['last_name']))) {
+        $data['first_name'] = trim($data['first_name']);
+        $data['last_name'] = trim($data['last_name']);
+
+        if (empty($data['first_name']) || empty($data['last_name'])) {
             $errorMessage .= 'You must provide valid first and last name<br />';
         }
 

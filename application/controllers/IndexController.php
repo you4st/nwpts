@@ -136,11 +136,11 @@ class IndexController extends Zend_Controller_Action
         $data = $this->_request->getParams();
         $required = array('username', 'email', 'first_name', 'last_name', 'password', 'masterKey');
         $errorMessage = '';
-        
+
         foreach ($required as $key) {
-        	if (!array_key_exists($key, $data)) {
-        		$errorMessage = 'Please provide the valid information...';
-        	}
+            if (!array_key_exists($key, $data)) {
+                $errorMessage = 'There exists some missing information. Please provide the valid information...';
+       	    }
         }
 
         if ($data['masterKey'] === MASTER_KEY) {
@@ -152,12 +152,12 @@ class IndexController extends Zend_Controller_Action
 
         if (empty($errorMessage)) {
             if (!$this->_user->addUser($data)) {
-				$errorMessage = 'Please provide the valid information...';
+                $errorMessage = 'Please provide the valid information...';
             } else {
-            	$this->_helper->redirector->gotoUrl('/');
+           	    $this->_helper->redirector->gotoUrl('/');
             }
         }
-        
+
         $this->view->errorMessage = $errorMessage;
     }
 }
