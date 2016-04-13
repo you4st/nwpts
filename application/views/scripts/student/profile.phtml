@@ -1,0 +1,72 @@
+<?php
+    $this->headScript()->appendFile('/js/student-profile.js');
+?>
+<div class="back-button-container">
+    <button onclick="location.href='/student'" class="black-button"><span>back</span></button>
+</div>
+<div class="inner-right">
+    <h1>My Profile<br /><em class="alt">Managing my profile data</em></h1>
+
+    <?php echo $this->errorMessage; ?>
+
+    <form name="profile" method="post">
+    <table id="profile">
+        <tr>
+            <td class="header">Username</td>
+            <td><?php echo $this->userData['username']; ?></td>
+            <td class="edit" rowspan="<?php echo !empty($this->userData['student']) ? '7' : '3'; ?>">
+                <span class="old">
+                    <span class="button-light edit">edit</span>
+                </span>
+                <span class="new hide">
+                    <span class="button-light update">update</span>
+                    <span class="button-light cancel">cancel</span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="header">Name</td>
+            <td><?php echo $this->userData['last_name'] . ', ' . $this->userData['first_name']; ?></td>
+        </tr>
+        <tr>
+            <td class="header">Email</td>
+            <td>
+                <span class="old"><?php echo $this->userData['email']; ?></span>
+                <span class="new hide"><input type="text" name="email" value="<?php echo $this->userData['email']; ?>" /></span>
+            </td>
+        </tr>
+
+        <?php if (!empty($this->userData['student'])) { ?>
+        <tr>
+            <td class="header">Student ID</td>
+            <td><?php echo $this->userData['student']['student_id']; ?></td>
+        </tr>
+        <tr>
+            <td class="header">Phone</td>
+            <td>
+                <span class="old"><?php echo '(' . substr($this->userData['student']['phone'], 0, 3) . ') ' . substr($this->userData['student']['phone'], 3, 3) . ' - ' . substr($this->userData['student']['phone'], -4); ?></span>
+                <span class="new hide"><input type="text" name="phone" value="<?php echo $this->userData['student']['phone']; ?>" /></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="header">Address</td>
+            <td>
+                <span class="old"><?php echo $this->userData['student']['street'] . '<br />' . $this->userData['student']['city'] . ', ' . $this->userData['student']['state'] . ' ' . $this->userData['student']['zip']; ?></span>
+                <span class="new hide">
+                    <input type="text" name="street" placeholder="street" value="<?php echo $this->userData['student']['street']; ?>" />
+                    <input type="text" name="city" placeholder="city" value="<?php echo $this->userData['student']['city']; ?>" />
+                    <select name="state">
+                        <?php echo $this->stateOptions; ?>
+                    </select>
+                    <input type="text" name="zip" placeholder="zip" value="<?php echo $this->userData['student']['zip']; ?>" />
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="header">Birth Date</td>
+            <td><?php echo $this->userData['student']['birth_date']; ?></td>
+        </tr>
+        <?php } ?>
+    </table>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<table id="course-table">
+    <tr>
+        <td width="120"><b>Course Name</b></td>
+        <td width="100"><b>Course ID</b></td>
+        <td><b>Description</b></td>
+        <td width="40"><b>Credit</b></td>
+        <td width="150"><b>Option</b></td>
+    </tr>
+
+    <?php foreach ($this->rows as $row) { ?>
+    <tr id="<?php echo $row['id']; ?>">
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['course_id']; ?></td>
+        <td><?php echo $row['description']; ?></td>
+        <td><?php echo $row['credit']; ?></td>
+        <td>
+            <span class="button-light edit" id="<?php echo $row['id']; ?>_edit_button">edit</span>
+            <span class="button-light delete" id="<?php echo $row['id']; ?>_delete_button">delete</span>
+        </td>
+    </tr>
+    <tr id="<?php echo $row['id']; ?>_edit" class="hide">
+        <td><input type="text" id="<?php echo $row['id']; ?>_name" value="<?php echo $row['name']; ?>" /></td>
+        <td><input type="text" id="<?php echo $row['id']; ?>_course_id" value="<?php echo $row['course_id']; ?>" /></td>
+        <td><input class="desc" type="text" id="<?php echo $row['id']; ?>_description" value="<?php echo $row['description']; ?>" /></td>
+        <td><input class="credit" type="text" id="<?php echo $row['id']; ?>_credit" value="<?php echo $row['credit']; ?>" /></td>
+        <td>
+            <span class="button-light save" id="<?php echo $row['id']; ?>_save">save</span>
+            <span class="button-light cancel" id="<?php echo $row['id']; ?>_cancel">cancel</span>
+        </td>
+    </tr>
+    <?php } ?>
+    <tr id="new_line">
+        <td colspan="5" align="center"><a id="new-course">New Course</a></td>
+    </tr>
+    <tr id="new_course_form" class="hide">
+        <td><input type="text" id="new_name" /></td>
+        <td><input type="text" id="new_course_id" /></td>
+        <td><input class="desc" type="text" id="new_description" /></td>
+        <td><input class="credit" type="text" id="new_credit" /></td>
+        <td>
+            <span class="button-light add" id="new_add">add</span>
+            <span class="button-light cancel" id="new_cancel">cancel</span>
+        </td>
+    </tr>
+</table>

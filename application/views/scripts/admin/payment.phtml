@@ -1,0 +1,38 @@
+<?php
+    $this->headScript()->appendFile('/js/admin-payment.js');
+?>
+<div class="back-button-container">
+    <button onclick="location.href='/admin'" class="black-button"><span>back</span></button>
+</div>
+<div class="inner-right">
+    <h1>Managing Payment Data</h1>
+
+    <h5>Add / Remove / Update the payment data</h5>
+
+    <p class="error"></p>
+
+    <table class="select">
+        <tr>
+            <td>Student Name</td>
+            <td>
+                <select name="name">
+                    <option value="no">Select Student Name</option>
+                    <?php echo $this->studentOptions; ?>
+                </select>
+            </td>
+            <td>Year and Semester</td>
+            <td>
+                <select name="year">
+                    <option value="all" selected>All Years</option>
+                    <?php echo $this->yearOptions; ?>
+                </select>
+                <select name="semester">
+                    <option value="all" selected>All Semesters</option>
+                    <option value="fall">Fall</option>
+                    <option value="spring">Spring</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <p id="tableData"></p>
+</div>

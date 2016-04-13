@@ -1,0 +1,63 @@
+<div class="main">
+    <h1>Student Information</h1>
+    <em class="alt error">* required</em>
+    <p class="error"></p>
+    <div class="student-info">
+        <span class="button remove" data="<?php echo $this->student['id']; ?>">remove</span>
+        <table>
+            <tr>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Name</td>
+	            <td colspan="2"><input name="last_name" type="text" value="<?php echo $this->student['last_name']; ?>" />&nbsp;&nbsp;<input name="first_name" type="text" value="<?php echo $this->student['first_name']; ?>" /></td>
+	            <td width="80" align="center"><span class="error">*&nbsp;</span>Email</td>
+	            <td><input name="email" type="text" value="<?php echo $this->student['email']; ?>" /></td>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Phone #</td>
+                <td><input name="phone" type="text" value="<?php echo $this->student['phone']; ?>" /></td>
+            </tr>
+
+            <tr>
+	            <td align="center"><span class="error">*&nbsp;</span>Address</td>
+	            <td colspan="2">
+	                <input name="street" type="text" value="<?php echo $this->student['street']; ?>" /><br />
+				    <input name="city" type="text" value="<?php echo $this->student['city']; ?>" />
+                    <select name="state" class="state">
+				        <?php echo $this->stateOptions; ?>
+                    </select>
+				    <input class="zip" name="zip" type="text" maxlength="5" value="<?php echo $this->student['zip']; ?>" />
+	            </td>
+                <td align="center"><span class="error">*&nbsp;</span>Birth Date</td>
+                <td><input class="update" name="birth_date" type="text" value="<?php echo $this->student['birth_date']; ?>" maxlength="10" /></td>
+                <td align="center">Student ID<br />(read only)</td>
+                <td><input name="student_id" type="text" value="<?php echo $this->student['student_id']; ?>" readonly="true" /></td>
+            </tr>
+
+            <tr>
+                <td align="center"><span class="error">*&nbsp;</span>Admission</td>
+                <td colspan="2">
+                    <input class="update" name="start_year" type="text" maxlength="4" value="<?php echo $this->student['start_year']; ?>" />
+                    <select name="start_semester" class="state">
+                        <option value="fall" <?php echo $this->student['start_semester'] == 'fall' ? 'selected' : ''; ?>>Fall</option>
+                        <option value="spring" <?php echo $this->student['start_semester'] == 'spring' ? 'selected' : ''; ?>>Spring</option>
+                    </select>
+                </td>
+                <td align="center">Graduate</td>
+                <td>
+                    <input name="grad_year" type="text" maxlength="4" value="<?php echo $this->student['grad_year']; ?>" />
+                </td>
+                <td align="center"><span class="error">*&nbsp;</span>Major</td>
+                <td>
+                    <select name="major" class="state">
+                        <option value="1" <?php echo $this->student['major'] == '1' ? 'selected' : ''; ?>>B.B.S.</option>
+                        <option value="2" <?php echo $this->student['major'] == '2' ? 'selected' : ''; ?>>M.Div</option>
+                        <option value="3" <?php echo $this->student['major'] == '3' ? 'selected' : ''; ?>>Th.M</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="CTA">
+    <button class="green-button first" id="student-update" data="<?php echo $this->student['id']; ?>"><span>update</span></button>
+    <button class="black-button close"><span>cancel</span></button>
+
+</div>
+

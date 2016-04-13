@@ -1,0 +1,18 @@
+<div class="back-button-container">
+
+</div>
+<div class="inner-right">
+    <h1>My Dashboard<br /><em class="alt">Managing my profile, course, balance and transcript</em></h1>
+    <p><h5>Please select one of the options you'd like to perform...</h5></p>
+
+    <a href="/student/profile"><span class="button wide">My Profile</span></a><br />
+
+    <?php if (!empty($this->userData['student'])) { ?>
+    <a href="/student/course"><span class="button wide">My Courses</span></a><br />
+    <a href="/student/balance"><span class="button wide">My Balance</span></a><br />
+    <a href="/student/transcript"><span class="button wide">My Transcript</span></a>
+    <?php } else { ?>
+    <p>&nbsp;</p>
+    <p class="error"><b>Please contact the administrator to complete your registration process...</b></p>
+    <?php } ?>
+</div>

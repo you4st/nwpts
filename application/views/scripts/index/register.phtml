@@ -1,0 +1,67 @@
+<div class="back-button-container">
+
+</div>
+<div class="inner-right">
+    <h1>REGISTER A NEW USER</h1>
+    
+    <?php echo $this->errorMessage; ?>
+
+    <form name="register" method="POST" action="">
+        <fieldset>
+            <dl class="<?php echo $this->formError['username'] ? 'invalid' : ''; ?>">
+                <dt>
+                    <input id="login" type="text" name="username" value="<?php echo $this->data['username']; ?>" />
+                    <label class="pseudo-label">Username</label>
+                    <span class="validation-arrow">&nbsp;</span>
+                </dt>
+                <dd>
+                    <span class="validation">Please Enter a valid Username</span>
+                </dd>
+            </dl>
+            <dl class="<?php echo $this->formError['email'] ? 'invalid' : ''; ?>">
+                <dt>
+                    <input id="login" type="text" name="email" value="<?php echo $this->data['email']; ?>" />
+                    <label class="pseudo-label">Email Address</label>
+                    <span class="validation-arrow">&nbsp;</span>
+                </dt>
+                <dd>
+                    <span class="validation">Please Enter a valid Email Address</span>
+                </dd>
+            </dl>
+            <dl class="<?php echo $this->formError['first_name'] ? 'invalid' : ''; ?>">
+                <dt>
+                    <input id="login" type="text" name="first_name" value="<?php echo $this->data['first_name']; ?>" />
+                    <label class="pseudo-label">First Name</label>
+                    <span class="validation-arrow">&nbsp;</span>
+                </dt>
+                <dd>
+                    <span class="validation">Please Enter a valid First Name</span>
+                </dd>
+            </dl>
+            <dl class="<?php echo $this->formError['last_name'] ? 'invalid' : ''; ?>">
+                <dt>
+                    <input id="login" type="text" name="last_name" value="<?php echo $this->data['last_name']; ?>" />
+                    <label class="pseudo-label">Last Name</label>
+                    <span class="validation-arrow">&nbsp;</span>
+                </dt>
+                <dd>
+                    <span class="validation">Please Enter a valid Last Name</span>
+                </dd>
+            </dl>
+            <dl class="<?php echo $this->formError['password'] ? 'invalid' : ''; ?>">
+                <dt>
+                    <input id="password" type="password" name="password" value="" />
+                    <label class="pseudo-label">Password</label>
+                    <span class="validation-arrow">&nbsp;</span>
+                </dt>
+                <dd>
+                    <span class="validation">Please Enter a valid Password</span>
+                </dd>
+            </dl>
+        </fieldset>
+        <button onclick="location.href='/index/login'; return false;" class="black-button"><span>cancel</span></button>
+        <button class="green-button first" type="submit" name="submit" value="register">
+            <span>register</span>
+        </button>
+    </form>    
+</div>

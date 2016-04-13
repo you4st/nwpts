@@ -1,0 +1,22 @@
+<table id="student-table">
+    <tr>
+        <td align="center" width="80"><b>Username</b></td>
+        <td align="center" width="120"><b>Name</b></td>
+        <td align="center"><b>Email</b></td>
+        <td align="center" width="100"><b>User Type</b></td>
+        <td align="center" width="100"><b>Relation ID</b></td>
+    </tr>
+
+    <?php foreach ($this->rows as $row) { ?>
+    <tr id="<?php echo $row['id']; ?>" class="overlay-link" data="user-modify" size="large" bind="true" param="<?php echo $row['id']; ?>">
+        <td align="center"><?php echo $row['username']; ?></td>
+        <td align="center"><?php echo $row['last_name'] . ', ' . $row['first_name']; ?></td>
+        <td><?php echo $row['email']; ?></td>
+        <td align="center"><?php echo $row['user_type'] == 1 ? 'admin' : ($row['user_type'] == 2 ? 'student' : 'faculty'); ?></td>
+        <td align="center"><?php echo $row['rel_id']; ?></td>
+    </tr>
+    <?php } ?>
+    <tr id="new_line">
+        <td colspan="5" align="center"><a class="overlay-link" data="user-new" bind="true">New User</a></td>
+    </tr>
+</table>

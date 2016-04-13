@@ -1,0 +1,21 @@
+<div id="header">
+<?php if (!$this->hideUserInfo) { ?>
+    <img class="print-logo" src="/images/logo/disciples.png" />
+    <a id="logo" href="/">
+        <div class="background">Go to Home</div>
+        <div class="logo-cover">
+            <img src="/images/logo/disciples.png" />
+        </div>
+    </a>
+<?php } else { ?>
+    <img class="signin-logo" src="/images/logo/disciples.png" />
+<?php } ?>
+
+    <ul id="header-controls">
+    <?php if (!$this->hideUserInfo) { ?>
+        <li><a href="/index/logout">sign out</a></li>
+        <li>|</li>
+        <li><?php echo $this->user['name']; ?> [<?php echo $this->user['id']; ?>]</li>
+    <?php } ?>
+    </ul>
+</div>

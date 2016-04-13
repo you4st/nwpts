@@ -1,0 +1,63 @@
+<div class="main">
+    <h1>Student Registration</h1>
+    <em class="alt error">* required</em>
+    <p class="error"></p>
+    <div class="student-info">
+
+        <table>
+            <tr>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Name</td>
+	            <td colspan="2"><input name="last_name" type="text" placeholder="Last Name" />&nbsp;&nbsp;<input name="first_name" type="text" placeholder="First Name" /></td>
+	            <td width="80" align="center"><span class="error">*&nbsp;</span>Email</td>
+	            <td><input name="email" type="text" /></td>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Phone #</td>
+                <td><input name="phone" type="text" /></td>
+            </tr>
+
+            <tr>
+	            <td align="center"><span class="error">*&nbsp;</span>Address</td>
+	            <td colspan="2">
+	                <input name="street" type="text" placeholder="street address" /><br />
+				    <input name="city" type="text" placeholder="city" />
+                    <select name="state" class="state">
+				        <?php echo $this->stateOptions; ?>
+                    </select>
+				    <input class="zip" name="zip" type="text" maxlength="5" placeholder="zip" />
+	            </td>
+                <td align="center"><span class="error">*&nbsp;</span>Birth Date</td>
+                <td><input class="update" name="birth_date" type="text" placeholder="YYYY/MM/DD" maxlength="10" /></td>
+                <td align="center">Student ID<br />(read only)</td>
+                <td><input name="student_id" type="text" readonly="true" /></td>
+            </tr>
+
+            <tr>
+                <td align="center"><span class="error">*&nbsp;</span>Admission</td>
+                <td colspan="2">
+                    <input class="update" name="start_year" type="text" maxlength="4" placeholder="YYYY" />
+                    <select name="start_semester" class="state">
+                        <option value="fall" selected>Fall</option>
+                        <option value="spring">Spring</option>
+                    </select>
+                </td>
+                <td align="center">Graduate</td>
+                <td>
+                    <input name="grad_year" type="text" maxlength="4" placeholder="YYYY" />
+                </td>
+                <td align="center"><span class="error">*&nbsp;</span>Major</td>
+                <td>
+                    <select name="major" class="state">
+                        <option value="1" selected>B.B.S.</option>
+                        <option value="2">M.Div</option>
+                        <option value="3">Th.M</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="CTA">
+    <button class="green-button submit first" id="new-student"><span>submit</span></button>
+    <button class="black-button close"><span>cancel</span></button>
+
+</div>
+

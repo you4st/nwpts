@@ -1,0 +1,86 @@
+<table id="course-table">
+    <tr>
+        <td width="100"><b>Course ID</b></td>
+        <td width="120"><b>Course Name</b></td>
+        <td><b>Year</b></td>
+        <td><b>Semester</b></td>
+        <td width="40"><b>Credit</b></td>
+        <td width="50"><b>Grade</b></td>
+        <?php if ($this->allowEdit) { ?>
+        <td width="150"><b>Option</b></td>
+        <?php } ?>
+    </tr>
+
+    <?php
+    if (count($this->courses) > 0) {
+        foreach ($this->courses as $row) { ?>
+
+            <tr id="<?php echo $row['id']; ?>">
+                <td><?php echo $row['course_id']; ?></td>
+                <td><?php echo $row['course_name']; ?></td>
+                <td><?php echo $row['year']; ?></td>
+                <td><?php echo ucfirst($row['semester']); ?></td>
+                <td><?php echo $row['credit']; ?></td>
+                <td><?php echo $row['grade']; ?></td>
+
+                <?php if ($this->allowEdit) { ?>
+                <td>
+                    <span class="button-light edit" id="<?php echo $row['id']; ?>_edit_button">edit</span>
+                    <span class="button-light delete" id="<?php echo $row['id']; ?>_delete_button">delete</span>
+                </td>
+                <?php } ?>
+
+            </tr>
+
+            <?php if ($this->allowEdit) { ?>
+            <tr id="<?php echo $row['id']; ?>_edit" class="hide">
+                <td colspan="2">
+                    <select class="course_id" id="<?php echo $row['id']; ?>_course_id">
+                        <?php echo $row['courseOptions']; ?>
+                    </select>
+                </td>
+                <td>
+                    <select class="year" id="<?php echo $row['id']; ?>_year">
+                        <?php echo $row['yearOptions']; ?>
+                    </select>
+                </td>
+                <td>
+                    <select class="semester" id="<?php echo $row['id']; ?>_semester">
+                        <?php echo $row['semesterOptions']; ?>
+                    </select>
+                </td>
+                <td>
+                    <select class="credit" id="<?php echo $row['id']; ?>_credit">
+                        <?php echo $row['creditOptions']; ?>
+                    </select>
+                </td>
+                <td>
+                    <input class="grade" type="text" id="<?php echo $row['id']; ?>_grade" value="<?php echo $row['grade']; ?>" />
+                </td>
+                <td>
+                    <span class="button-light save" id="<?php echo $row['id']; ?>_save">save</span>
+                    <span class="button-light cancel" id="<?php echo $row['id']; ?>_cancel">cancel</span>
+                </td>
+
+            </tr>
+            <?php } ?>
+
+        <?php }
+    } else {
+    ?>
+        <tr>
+            <td colspan="<?php echo $this->allowEdit ? '7' : '6'; ?>" align="center"><b>No Course Taken</b></td>
+        </tr>
+    <?php } ?>
+    <?php if ($this->allowEnroll) { ?>
+    <tr id="new_line">
+        <td colspan="<?php echo $this->allowEdit ? '7' : '6'; ?>" align="center">
+            <?php if ($this->admin) { ?>
+            <a class="overlay-link" data="manage-course-new" bind="true">New Course</a>
+            <?php } else { ?>
+            <a class="overlay-link" data="student-course-new" param="<?php echo $this->student_id; ?>" bind="true">New Course</a>
+            <?php } ?>
+        </td>
+    </tr>
+    <?php } ?>
+</table>

@@ -1,0 +1,34 @@
+<?php
+    $this->headScript()->appendFile('/js/student-balance.js');
+?>
+<div class="back-button-container">
+    <button onclick="location.href='/student'" class="black-button"><span>back</span></button>
+</div>
+<div class="inner-right">
+    <h1>My Balance<br /><em class="alt">Viewing my balance and payment</em></h1>
+
+    <p class="error"></p>
+    <input type="hidden" name="student_id" value="<?php echo $this->student_id; ?>" />
+    <input type="hidden" name="currentYear" value="<?php echo $this->current['year']; ?>" />
+    <input type="hidden" name="currentSemester" value="<?php echo $this->current['semester']; ?>" />
+
+    <table class="select">
+        <tr>
+            <td>Year</td>
+            <td>
+                <select name="year">
+                    <option value="all">All Years</option>
+                    <?php echo $this->yearOptions; ?>
+                </select>
+            </td>
+            <td>Semester</td>
+            <td>
+                <select name="semester">
+                    <option value="all">All Semesters</option>
+                    <?php echo $this->semesterOptions; ?>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <p id="tableData"></p>
+</div>

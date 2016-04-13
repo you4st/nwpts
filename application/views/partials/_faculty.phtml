@@ -1,0 +1,22 @@
+<table id="student-table">
+    <tr>
+        <td align="center" width="80"><b>Faculty ID</b></td>
+        <td align="center" width="120"><b>Name</b></td>
+        <td align="center"><b>Email</b></td>
+        <td align="center" width="100"><b>Phone</b></td>
+        <td align="center" width="100"><b>Username</b></td>
+    </tr>
+
+    <?php foreach ($this->rows as $row) { ?>
+    <tr id="<?php echo $row['id']; ?>" class="overlay-link" data="faculty-modify" size="large" bind="true" param="<?php echo $row['id']; ?>">
+        <td align="center"><?php echo $row['faculty_id']; ?></td>
+        <td align="center"><?php echo $row['last_name'] . ', ' . $row['first_name']; ?></td>
+        <td><?php echo $row['email']; ?></td>
+        <td align="center"><?php echo '(' . substr($row['phone'], 0, 3) . ') ' . substr($row['phone'], 3, 3) . ' - ' . substr($row['phone'], -4); ?></td>
+        <td align="center"><?php echo $row['username']; ?></td>
+    </tr>
+    <?php } ?>
+    <tr id="new_line">
+        <td colspan="5" align="center"><a class="overlay-link" data="faculty-new" size="large" bind="true">New Faculty</a></td>
+    </tr>
+</table>

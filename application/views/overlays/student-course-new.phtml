@@ -1,0 +1,20 @@
+<div class="main">
+    <h1>Course Registration</h1>
+    <em class="alt error">*required</em>
+    <p class="overlay error"></p>
+    <table>
+        <tr>
+            <td><span class="error">*&nbsp;</span>Course</td>
+            <td>
+                <select name="new_course_id">
+                    <option value="0">Select Course</option>
+                    <?php echo $this->courseOptions; ?>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="CTA">
+    <button class="green-button submit first" id="student-course-new"><span>submit</span></button>
+    <button class="black-button close"><span>cancel</span></button>
+</div>

@@ -1,0 +1,33 @@
+<div class="main">
+    <h1>Faculty Information</h1>
+    <em class="alt error">* required</em>
+    <p class="error"></p>
+    <div class="student-info">
+        <span class="button remove" data="<?php echo $this->faculty['id']; ?>">remove</span>
+        <table>
+            <tr>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Name</td>
+	            <td><input name="last_name" type="text" value="<?php echo $this->faculty['last_name']; ?>" />&nbsp;&nbsp;<input name="first_name" type="text" value="<?php echo $this->faculty['first_name']; ?>" /></td>
+	            <td width="80" align="center"><span class="error">*&nbsp;</span>Email</td>
+	            <td><input name="email" type="text" value="<?php echo $this->faculty['email']; ?>" /></td>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Phone #</td>
+                <td><input name="phone" type="text" value="<?php echo $this->faculty['phone']; ?>" /></td>
+            </tr>
+
+            <tr>
+                <td align="center"><span class="error">*&nbsp;</span>Birth Date</td>
+                <td><input class="update" name="birth_date" type="text" value="<?php echo $this->faculty['birth_date']; ?>" maxlength="10" /></td>
+                <td align="center"><span class="error">*&nbsp;</span>Start Year</td>
+                <td><input class="update" name="start_year" type="text" maxlength="4" value="<?php echo $this->faculty['start_year']; ?>" /></td>
+                <td align="center">Faculty ID<br />(read only)</td>
+                <td><input name="faculty_id" type="text" value="<?php echo $this->faculty['faculty_id']; ?>" readonly="true" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="CTA">
+    <button class="green-button first" id="faculty-update" data="<?php echo $this->faculty['id']; ?>"><span>update</span></button>
+    <button class="black-button close"><span>cancel</span></button>
+
+</div>
+

@@ -1,0 +1,38 @@
+<?php
+    $this->headScript()->appendFile('/js/admin-student-course.js');
+?>
+<div class="back-button-container">
+    <button onclick="location.href='/admin'" class="black-button"><span>back</span></button>
+</div>
+<div class="inner-right">
+    <h1>Managing Student-Course Data</h1>
+
+    <h5>Add / Remove / Update the student-course data</h5>
+
+    <p class="error"></p>
+
+    <table class="select">
+        <tr>
+            <td>Student Name</td>
+            <td>
+                <select name="name">
+                    <option value="no">Select Student Name</option>
+                    <?php echo $this->studentOptions; ?>
+                </select>
+            </td>
+            <td>Year and Semester</td>
+            <td>
+                <select name="year">
+                    <option value="all">All Years</option>
+                    <?php echo $this->yearOptions; ?>
+                </select>
+                <select name="semester">
+                    <option value="all">All Semesters</option>
+                    <option value="fall">Fall</option>
+                    <option value="spring">Spring</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <p id="tableData"></p>
+</div>

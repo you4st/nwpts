@@ -1,0 +1,42 @@
+<div class="main">
+    <h1>New Payment Record</h1>
+    <em class="alt error">* All fields are required</em>
+    <p class="overlay error"></p>
+    <table>
+        <tr>
+            <td>Date</td>
+            <td>
+                <input type="text" name="new_date" value="<?php echo $this->current_date; ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td>Payment Type</td>
+            <td>
+                <select name="new_type">
+                    <option value="0">Select Payment Type</option>
+                    <?php echo $this->paymentTypeOptions; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Payment Reason</td>
+            <td>
+                <select name="new_reason">
+                    <option value="0">Select Payment Reason</option>
+                    <?php echo $this->paymentReasonOptions; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td>
+                <input class="amount" type="text" name="new_amount" placeholder="(number only)"/>
+            </td>
+
+        </tr>
+    </table>
+</div>
+<div class="CTA">
+    <button class="green-button submit first" id="payment-new"><span>submit</span></button>
+    <button class="black-button close"><span>cancel</span></button>
+</div>

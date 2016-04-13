@@ -1,0 +1,48 @@
+<div class="back-button-container">
+    <button onclick="location.href='/student'" class="black-button"><span>back</span></button>
+</div>
+<div class="inner-right">
+    <h1>My Transcript<br /><em class="alt">Viewing my transcript</em></h1>
+<pre>
+    <?php print_r($this->courses); ?>
+</pre>
+    <table id="course-table">
+        <tr>
+            <td width="80"><b>Course ID</b></td>
+            <td><b>Course Name</b></td>
+            <td width="50"><b>Credit</b></td>
+            <td width="50"><b>Grade</b></td>
+        </tr>
+    <?php foreach ($this->courses as $year => $semester) { ?>
+        <?php if (array_key_exists('spring', $semester)) { ?>
+        <tr>
+            <td colspan="4"><b><?php echo $year . '&nbsp;&nbsp;Spring'?></b></td>
+        </tr>
+
+            <?php foreach ($semester['spring'] as $course) { ?>
+            <tr>
+                <td><?php echo $course['course_id']; ?></td>
+                <td><?php echo $course['course_name']; ?></td>
+                <td><?php echo $course['credit']; ?></td>
+                <td><?php echo $course['grade']; ?></td>
+            </tr>
+            <?php } ?>
+        <?php } ?>
+        <?php if (array_key_exists('fall', $semester)) { ?>
+            <tr>
+                <td colspan="4"><b><?php echo $year . '&nbsp;&nbsp;Fall'?></b></td>
+            </tr>
+
+            <?php foreach ($semester['fall'] as $course) { ?>
+                <tr>
+                    <td><?php echo $course['course_id']; ?></td>
+                    <td><?php echo $course['course_name']; ?></td>
+                    <td><?php echo $course['credit']; ?></td>
+                    <td><?php echo $course['grade']; ?></td>
+                </tr>
+            <?php } ?>
+        <?php } ?>
+
+    <?php } ?>
+    </table>
+</div>

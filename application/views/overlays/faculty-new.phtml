@@ -1,0 +1,34 @@
+<div class="main">
+    <h1>Faculty Registration</h1>
+    <em class="alt error">* required</em>
+    <p class="error"></p>
+    <div class="student-info">
+        <table>
+            <tr>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Name</td>
+	            <td><input name="last_name" type="text" placeholder="Last Name" />&nbsp;&nbsp;<input name="first_name" type="text" placeholder="First Name" /></td>
+	            <td width="80" align="center"><span class="error">*&nbsp;</span>Email</td>
+	            <td><input name="email" type="text" /></td>
+                <td width="80" align="center"><span class="error">*&nbsp;</span>Phone #</td>
+                <td><input name="phone" type="text" /></td>
+            </tr>
+
+            <tr>
+	            <td align="center"><span class="error">*&nbsp;</span>Birth Date</td>
+                <td><input class="update" name="birth_date" type="text" placeholder="YYYY/MM/DD" maxlength="10" /></td>
+                <td align="center"><span class="error">*&nbsp;</span>Start Year</td>
+                <td>
+                    <input class="update" name="start_year" type="text" maxlength="4" placeholder="YYYY" />
+                </td>
+                <td align="center">Faculty ID<br />(read only)</td>
+                <td><input name="faculty_id" type="text" readonly="true" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="CTA">
+    <button class="green-button submit first" id="new-faculty"><span>submit</span></button>
+    <button class="black-button close"><span>cancel</span></button>
+
+</div>
+
